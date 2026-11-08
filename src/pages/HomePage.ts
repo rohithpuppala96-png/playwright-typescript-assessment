@@ -13,7 +13,7 @@ export class HomePage {
     await this.page.goto(EnvUtil.baseUrl);
   }
 
-  async verifyingPageLoaded(expectedText: string) {
+  async verifyPageLoaded(expectedText: string) {
     await expect(this.page.locator(this.Elements.heading)).toContainText(
       expectedText,
     );
