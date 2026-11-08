@@ -1,5 +1,4 @@
 import { Given } from "@cucumber/cucumber";
-import { HomePage } from "../pages/HomePage";
 import { getData } from "../support/utils/getData";
 import { CustomWorld } from "../support/world";
 

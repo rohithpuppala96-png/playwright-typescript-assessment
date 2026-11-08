@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test": "cucumber-js",
+    "report": "node report.mjs",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
