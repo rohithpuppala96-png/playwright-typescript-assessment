@@ -41,3 +41,20 @@ Then(
     await contactPage.verifyMessageErrorCleared();
   },
 );
+
+When("the user submits the contact form", async function (this: CustomWorld) {
+  await new ContactPage(this.page).clickSubmit();
+});
+
+Then(
+  "the successful submission message is displayed",
+  async function (this: CustomWorld) {
+    const contactPage = new ContactPage(this.page);
+    const { forename } = this.currentData.contactDetails;
+    await contactPage.verifySuccessMessageShown();
+    await contactPage.verifySuccessMessageContains(`Thanks ${forename}`);
+    await contactPage.verifySuccessMessageContains(
+      this.currentData.successMessageText,
+    );
+  },
+);

@@ -14,3 +14,20 @@ Feature: Contact form
         Examples:
             | scenarioName           |
             | TC01_ContactValidation |
+
+    @TC02_ContactSubmission
+    Scenario Outline: Successful contact submission (run 5 times for stability)
+        Given The test fetches required data "<scenarioName>"
+        And the user is on the home page
+        When the user navigates to the contact page
+        And the user fills in all mandatory fields with valid data
+        And the user submits the contact form
+        Then the successful submission message is displayed
+
+        Examples:
+            | scenarioName              |
+            | TC02_ContactSubmission_01 |
+            | TC02_ContactSubmission_02 |
+            | TC02_ContactSubmission_03 |
+            | TC02_ContactSubmission_04 |
+            | TC02_ContactSubmission_05 |

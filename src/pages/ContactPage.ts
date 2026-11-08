@@ -11,7 +11,10 @@ export class ContactPage {
     emailError: "#email-err",
     messageError: "#message-err",
     errorBanner: "#header-message .alert-error",
+    successMessage: ".alert-success",
   };
+
+  private readonly submissionTimeout = 30_000;
 
   constructor(private readonly page: Page) {}
 
@@ -65,5 +68,17 @@ export class ContactPage {
 
   async verifyMessageErrorCleared() {
     await expect(this.page.locator(this.Elements.messageError)).toBeHidden();
+  }
+
+  async verifySuccessMessageShown() {
+    await expect(this.page.locator(this.Elements.successMessage)).toBeVisible({
+      timeout: this.submissionTimeout,
+    });
+  }
+
+  async verifySuccessMessageContains(text: string) {
+    await expect(this.page.locator(this.Elements.successMessage)).toContainText(
+      text,
+    );
   }
 }
