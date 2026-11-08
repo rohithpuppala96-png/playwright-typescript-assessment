@@ -58,7 +58,7 @@ export const dynamicData = {
     },
 
     TC03_CartCalculation: {
-      homePageHEading: "Jupiter Toys",
+      homePageHeading: "Jupiter Toys",
       cartItems: [
         { productName: "Stuffed Frog", quantity: 2 },
         { productName: "Fluffy Bunny", quantity: 5 },
